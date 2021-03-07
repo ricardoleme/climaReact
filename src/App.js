@@ -5,21 +5,28 @@ import Form from 'react-bootstrap/Form'
 import Alert from 'react-bootstrap/Alert'
 import FormControl from 'react-bootstrap/FormControl'
 import Button from 'react-bootstrap/Button'
+import Jumbotron from 'react-bootstrap/Jumbotron'
 import Card from 'react-bootstrap/Card'
 import CardDeck from 'react-bootstrap/CardDeck'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 import { FaCloudversify } from "react-icons/fa"
-import { FaSpinner } from "react-icons/fa";
+import { FaSpinner } from "react-icons/fa"
+import { FaCloudRain } from "react-icons/fa"
 
 
 /* API Geo Referenciamento
 * https://opencagedata.com/users/sign_up
+* API Fotos
+* https://unsplash.com/oauth/applications
+* ZzdMKScR_-MgaspHZbga5ujrJWc6LRAaEbcBfCuA_a4
+* https://api.unsplash.com/search/photos?query=Itu&client_id=71fab1070168597fcfd2bf922067b1b266a00074285460c4fa4e1967dff36384&page=1&w=1500&dpi=2
+
 */
 
 function App() {
   const [erro, setErro] = useState(null)
-  const [cidade, setCidade] = useState(null)
+  const [cidade, setCidade] = useState('')
 
   //Fonte: https://developer.mozilla.org/en-US/docs/Web/API/GeolocationPositionError/code
   const errosGeo = [{ "codigo": 1, "texto": "Não foi dada permissão para o sistema poder encontrar a sua localização" },
@@ -51,8 +58,20 @@ function App() {
     }
   }, [])
 
-  
-
+  async function obtemFotos(){
+    let url=`https://api.unsplash.com/search/photos?query=${cidade}&client_id=71fab1070168597fcfd2bf922067b1b266a00074285460c4fa4e1967dff36384&page=1&w=1500&dpi=2
+    `
+    await fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data.results)
+       
+      })
+      .catch(function (error) {
+        console.error('Houve um problema ao efetuar a requisição: ' + error.message);
+      });
+  }
+obtemFotos()
 
   return (
     <>
@@ -82,6 +101,13 @@ function App() {
           </p>
         </Alert>
       }
+      <Jumbotron className="jumbotron-background jumbotron-texto">
+  <h1><FaCloudRain/> FateClima</h1>
+  <p>
+    Consulte o clima de qualquer cidade do mundo. <br></br>
+    App desenvolvido em ReactJS e integrado com as APIs Opencagedata, Unsplash
+  </p>
+</Jumbotron >
       <CardDeck>
       <Card>
     <Card.Img variant="top" src="http://holder.js/100px160" />

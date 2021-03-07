@@ -10,3 +10,15 @@
     transform: rotate(360deg);
   }
 }
+
+.jumbotron-background {
+    background-image: url('./images/clima.jpg');
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.65;
+}
+
+.jumbotron-texto {
+    color: white
+}
