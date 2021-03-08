@@ -22,3 +22,7 @@
 .jumbotron-texto {
     color: white
 }
+
+.cartao {
+  width: 25rem; /* considera a unidade base*/
+}
