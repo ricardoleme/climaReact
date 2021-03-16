@@ -9,8 +9,10 @@ Neste projeto, fazemos a chamada a Geolocalização, obtemos a cidade a partir d
 Renomeie o arquivo .env-exemplo para .env.local e informe as chaves obtidas para cada API
 
 ## Veja a demonstração
-
+[climaReact](http://ricardoleme.github.io/climaReact)
 
 ## Licença
 MIT
 
+## Sobre
+Este projeto foi construído com [GitHub Pages](https://pages.github.com/).
