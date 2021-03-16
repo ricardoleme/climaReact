@@ -1,5 +1,6 @@
 {
   "name": "clima",
+  "homepage": "http://ricardoleme.github.io/climaReact",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
