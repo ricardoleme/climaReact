@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/climaReact/static/css/main.ea8f0e44.chunk.css",
+    "main.js": "/climaReact/static/js/main.5404cc46.chunk.js",
+    "main.js.map": "/climaReact/static/js/main.5404cc46.chunk.js.map",
+    "runtime-main.js": "/climaReact/static/js/runtime-main.bcca1770.js",
+    "runtime-main.js.map": "/climaReact/static/js/runtime-main.bcca1770.js.map",
+    "static/css/2.150d169a.chunk.css": "/climaReact/static/css/2.150d169a.chunk.css",
+    "static/js/2.b6bf6110.chunk.js": "/climaReact/static/js/2.b6bf6110.chunk.js",
+    "static/js/2.b6bf6110.chunk.js.map": "/climaReact/static/js/2.b6bf6110.chunk.js.map",
+    "index.html": "/climaReact/index.html",
+    "static/css/2.150d169a.chunk.css.map": "/climaReact/static/css/2.150d169a.chunk.css.map",
+    "static/css/main.ea8f0e44.chunk.css.map": "/climaReact/static/css/main.ea8f0e44.chunk.css.map",
+    "static/js/2.b6bf6110.chunk.js.LICENSE.txt": "/climaReact/static/js/2.b6bf6110.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/climaReact/static/media/clima.90b1203b.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bcca1770.js",
+    "static/css/2.150d169a.chunk.css",
+    "static/js/2.b6bf6110.chunk.js",
+    "static/css/main.ea8f0e44.chunk.css",
+    "static/js/main.5404cc46.chunk.js"
+  ]
+}

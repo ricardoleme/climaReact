@@ -1,0 +1,2 @@
+.spinner{animation:spin 5s linear infinite}@keyframes spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}.jumbotron-background{background-image:url(/climaReact/static/media/clima.90b1203b.png);background-position:50%;background-repeat:no-repeat;background-size:cover;opacity:.65}.jumbotron-texto{color:#000}.cartao{width:25rem}
+/*# sourceMappingURL=main.ea8f0e44.chunk.css.map */
