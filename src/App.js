@@ -37,7 +37,7 @@ function App() {
   const [obtendoClima, setObtendoClima] = useState(false)
   const [cidade, setCidade] = useState('')
   const [clima, setClima] = useState(null)
-  const numeroWhats = '5511983275107'
+  const numeroWhats = '5511941366222' //Prefeitura de Itu
 
 
 
@@ -112,14 +112,13 @@ function App() {
 
     let target = ''
     if (detectaMobile()) {
-           // montar o link (número e texto) (app)
-           target = `whatsapp://send?phone=${encodeURIComponent(numeroWhats)}&text=${encodeURIComponent(mensagem)}`
+      // montar o link (número e texto) (app)
+      target = `whatsapp://send?phone=${encodeURIComponent(numeroWhats)}&text=${encodeURIComponent(mensagem)}`
     } else {
-            // montar o link (número e texto) (web)
-            target = `https://api.whatsapp.com/send?phone=${encodeURIComponent(numeroWhats)}&text=${encodeURIComponent(mensagem)}`
-  }
-  alert(target)
-return target
+      // montar o link (número e texto) (web)
+      target = `https://api.whatsapp.com/send?phone=${encodeURIComponent(numeroWhats)}&text=${encodeURIComponent(mensagem)}`
+    }
+    return target
   }
 
   return (
@@ -168,7 +167,11 @@ return target
           App desenvolvido em ReactJS e integrado com as APIs Opencagedata e OpenWeatherMap
   </p>
       </Jumbotron >
-      {obtendoClima &&  <Spinner animation="border" variant="primary" className="justify-content-center" />}
+      {obtendoClima &&
+        <Row className="justify-content-center">
+          <Spinner animation="border" variant="primary" />
+        </Row>
+      }
       {clima &&
         <Row className="justify-content-center">
           <Card bg="primary" className="cartao text-center">
@@ -183,7 +186,7 @@ return target
               <Card.Title className="text-light">Previsão do Tempo</Card.Title>
               <Button variant="success" onClick={e => {
                 e.preventDefault()
-                window.location.href = enviaWhats(`A temperatura em ${clima.name} é de ${clima.main.temp}`)
+                window.location.href = enviaWhats(`_FateClima_ informa: A temperatura em *${clima.name}* é de ${clima.main.temp}&#x2103;`)
               }}><FaWhatsapp /> Compartilhar</Button>
             </Card.Body>
             <Card.Footer className="text-light">Atualizado em: {new Date(clima.dt * 1000).toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })}</Card.Footer>
@@ -192,7 +195,7 @@ return target
       }
       <Navbar bg="dark" sticky="bottom" id="contato" className="m-1">
         <Navbar.Brand href="#home" className="text-light">
-          <FaCloudRain /> FateClima - &copy; - Todos os direitos reservados - Desenvolvido por mim
+          <FaCloudRain /> FateClima - &copy; 
         </Navbar.Brand>
       </Navbar>
     </Container>
