@@ -186,7 +186,7 @@ function App() {
               <Card.Title className="text-light">Previsão do Tempo</Card.Title>
               <Button variant="success" onClick={e => {
                 e.preventDefault()
-                window.location.href = enviaWhats(`_FateClima_informa: A temperatura em *${clima.name}* agora é de ${clima.main.temp}C`)
+                window.location.href = enviaWhats(`FateClima informa: A temperatura em *${clima.name}* agora é de ${clima.main.temp}C 🤜🤛`)
               }}><FaWhatsapp /> Compartilhar</Button>
             </Card.Body>
             <Card.Footer className="text-light">Atualizado em: {new Date(clima.dt * 1000).toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })}</Card.Footer>
