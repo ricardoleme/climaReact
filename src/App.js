@@ -86,13 +86,16 @@ function App() {
         switch (data.cod) {
           case '401':
             setErroClima('A API Key informada é inválida!')
+            setClima(null)
             break;
           case '404':
             setErroClima('Cidade não encontrada')
+            setClima(null)
             break;
-            case '429':
-              setErroClima('O uso gratuito da API foi excedido! (60 chamadas por minuto)')
-              break;  
+          case '429':
+            setErroClima('O uso gratuito da API foi excedido! (60 chamadas por minuto)')
+            setClima(null)
+            break;
           default:
             setClima(data)
         }
@@ -148,7 +151,7 @@ function App() {
             value={cidade} onChange={e => setCidade(e.target.value)} />
                       &nbsp;
           {obtendoGeo && <FaSpinner className="spinner" color="white" />}
-          <Button variant="secondary" onClick={() => { obtemClima(cidade) }} disabled={!cidade.length>0}>
+          <Button variant="secondary" onClick={() => { obtemClima(cidade) }} disabled={!cidade.length > 0}>
             {obtendoClima ? <FaSpinner className="spinner" color="white" /> : <FaCloudversify color="white" />}
             &nbsp;Obter Clima</Button>
         </Form>
@@ -207,7 +210,7 @@ function App() {
       }
       <Navbar bg="dark" sticky="bottom" id="contato" className="m-1">
         <Navbar.Brand href="#home" className="text-light">
-          <FaCloudRain /> FateClima - &copy; 
+          <FaCloudRain /> FateClima - &copy;
         </Navbar.Brand>
       </Navbar>
     </Container>
