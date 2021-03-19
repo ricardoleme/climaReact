@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/climaReact/static/css/main.ea8f0e44.chunk.css",
-    "main.js": "/climaReact/static/js/main.cb272889.chunk.js",
-    "main.js.map": "/climaReact/static/js/main.cb272889.chunk.js.map",
+    "main.js": "/climaReact/static/js/main.ef3e21c4.chunk.js",
+    "main.js.map": "/climaReact/static/js/main.ef3e21c4.chunk.js.map",
     "runtime-main.js": "/climaReact/static/js/runtime-main.bcca1770.js",
     "runtime-main.js.map": "/climaReact/static/js/runtime-main.bcca1770.js.map",
     "static/css/2.150d169a.chunk.css": "/climaReact/static/css/2.150d169a.chunk.css",
@@ -19,6 +19,6 @@
     "static/css/2.150d169a.chunk.css",
     "static/js/2.5cb57f00.chunk.js",
     "static/css/main.ea8f0e44.chunk.css",
-    "static/js/main.cb272889.chunk.js"
+    "static/js/main.ef3e21c4.chunk.js"
   ]
 }
