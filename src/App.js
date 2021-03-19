@@ -83,7 +83,19 @@ function App() {
     await fetch(urlClima)
       .then(response => response.json())
       .then(data => {
-        data.cod === '404' ? setErroClima('Cidade não encontrada') : setClima(data)
+        switch (data.cod) {
+          case '401':
+            setErroClima('A API Key informada é inválida!')
+            break;
+          case '404':
+            setErroClima('Cidade não encontrada')
+            break;
+            case '429':
+              setErroClima('O uso gratuito da API foi excedido! (60 chamadas por minuto)')
+              break;  
+          default:
+            setClima(data)
+        }
       })
       .catch(function (error) {
         console.error('Houve um problema ao efetuar a requisição: ' + error.message);
@@ -136,7 +148,7 @@ function App() {
             value={cidade} onChange={e => setCidade(e.target.value)} />
                       &nbsp;
           {obtendoGeo && <FaSpinner className="spinner" color="white" />}
-          <Button variant="secondary" onClick={() => { obtemClima(cidade) }} >
+          <Button variant="secondary" onClick={() => { obtemClima(cidade) }} disabled={!cidade.length>0}>
             {obtendoClima ? <FaSpinner className="spinner" color="white" /> : <FaCloudversify color="white" />}
             &nbsp;Obter Clima</Button>
         </Form>
