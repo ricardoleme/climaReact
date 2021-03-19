@@ -10,12 +10,12 @@ import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
 import Container from 'react-bootstrap/Container'
 import Toast from 'react-bootstrap/Toast'
+import Spinner from 'react-bootstrap/Spinner'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
-import { FaCloudversify } from "react-icons/fa"
-import { FaSpinner } from "react-icons/fa"
-import { FaCloudRain } from "react-icons/fa"
-import { FaArrowDown, FaArrowUp } from "react-icons/fa"
+import { FaCloudversify, FaSpinner, FaCloudRain, FaArrowDown, FaArrowUp, FaWhatsapp }
+  from "react-icons/fa"
+
 
 
 
@@ -37,6 +37,10 @@ function App() {
   const [obtendoClima, setObtendoClima] = useState(false)
   const [cidade, setCidade] = useState('')
   const [clima, setClima] = useState(null)
+  const numeroWhats = '5511983275107'
+
+
+
 
   //Fonte: https://developer.mozilla.org/en-US/docs/Web/API/GeolocationPositionError/code
   const listaErrosGeo = [{ "codigo": 1, "texto": "Não foi dada permissão para o sistema poder encontrar a sua localização" },
@@ -88,6 +92,36 @@ function App() {
   }
 
 
+  function detectaMobile() {
+    const toMatch = [
+      /Android/i,
+      /webOS/i,
+      /iPhone/i,
+      /iPad/i,
+      /iPod/i,
+      /BlackBerry/i,
+      /Windows Phone/i
+    ];
+
+    return toMatch.some((toMatchItem) => {
+      return navigator.userAgent.match(toMatchItem);
+    });
+  }
+
+  function enviaWhats(mensagem) {
+
+    let target = ''
+    if (detectaMobile()) {
+           // montar o link (número e texto) (app)
+           target = `whatsapp://send?phone=${encodeURIComponent(numeroWhats)}&text=${encodeURIComponent(mensagem)}`
+    } else {
+            // montar o link (número e texto) (web)
+            target = `https://api.whatsapp.com/send?phone=${encodeURIComponent(numeroWhats)}&text=${encodeURIComponent(mensagem)}`
+  }
+  alert(target)
+return target
+  }
+
   return (
     <Container fluid={true} className="p-0">
       <Navbar bg="primary">
@@ -134,6 +168,7 @@ function App() {
           App desenvolvido em ReactJS e integrado com as APIs Opencagedata e OpenWeatherMap
   </p>
       </Jumbotron >
+      {obtendoClima &&  <Spinner animation="border" variant="primary" className="justify-content-center" />}
       {clima &&
         <Row className="justify-content-center">
           <Card bg="primary" className="cartao text-center">
@@ -146,9 +181,10 @@ function App() {
               <Card.Img src={`http://openweathermap.org/img/wn/${clima.weather[0].icon}@4x.png`} title={clima.weather[0].description} />
               <h3 className="text-light">{clima.weather[0].description}</h3>
               <Card.Title className="text-light">Previsão do Tempo</Card.Title>
-              <Card.Text>
-
-              </Card.Text>
+              <Button variant="success" onClick={e => {
+                e.preventDefault()
+                window.location.href = enviaWhats(`A temperatura em ${clima.name} é de ${clima.main.temp}`)
+              }}><FaWhatsapp /> Compartilhar</Button>
             </Card.Body>
             <Card.Footer className="text-light">Atualizado em: {new Date(clima.dt * 1000).toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })}</Card.Footer>
           </Card>
