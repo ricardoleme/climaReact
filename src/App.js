@@ -75,6 +75,12 @@ function App() {
     }
   }, [])
 
+  const verificaEnter = (e) => {
+    if (e.code === 'Enter') {
+      e.preventDefault()
+      cidade && obtemClima(cidade)
+    }
+  }
 
   async function obtemClima(cidade) {
     setObtendoClima(true)
@@ -144,7 +150,7 @@ function App() {
           <Nav.Link href="#home">Início</Nav.Link>
           <Nav.Link href="#contato">Contato</Nav.Link>
         </Nav>
-        <Form inline>
+        <Form inline onKeyDown={(e) => verificaEnter(e)}>
           <FormControl type="text"
             placeholder={obtendoGeo ? 'Aguarde, obtendo a cidade...' : 'Informe a cidade'}
             className="sm-3"
